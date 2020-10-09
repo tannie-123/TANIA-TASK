@@ -1,0 +1,45 @@
+<div class="Addstudents">
+  <div class="container add">
+   
+  <form (ngSubmit)="Addstudents(StudentsInfo)"#StudentsInfo="ngForm">
+<div class="row justify-content- center p-2"></div>
+<H1>STUDENTS DETAILS</H1>
+    <input name="name"ngModel #name="ngModel"placeholder="Name:">
+<input name="surname"ngModel #surname="ngModel"placeholder="Surname:">
+  <input name="residential"ngModel #residential="ngModel"placeholder="Residential">
+   <input name="contacts"ngModel #contacts="ngModel"placeholder="Contacts">
+     <input name="course"ngModel #course="ngModel"placeholder="Course">
+    <button type="submit"> Add Students</button>
+    <button type="update"> update</button>
+    <div class="container">
+
+  <table>
+    <th><h4>list of Students</h4></th>
+    
+    
+    <tr><li *ngFor="let list of student">
+      <p (click)="DeleteStudents(list.payload.doc.id)"><td>Name and Surname:{{list.payload.doc.data().name}} {{list.payload.doc.data().surname}}</td> 
+     
+      <td> IDno:{{list.payload.doc.id}},</td>
+       <td> Residential:{{list.payload.doc.data().residential}}</td>
+       <td> Contacts:{{list.payload.doc.data().contacts}}</td>
+       <td> Course:{{list.payload.doc.data().course}}</td>
+       <td><strong><h2>Delete</h2></strong></td>
+      </p>
+   
+   
+    </li>
+    
+    </tr>
+    </table>
+ 
+</div>
+    
+
+  </form>
+
+
+
+     
+     
+  
