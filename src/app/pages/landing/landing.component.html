@@ -1,0 +1,46 @@
+
+<div class="container">
+
+
+    <h2>REGISTRATION</h2>
+  
+    <div class="row">
+      <div class="column" style="background-color:#aaa;">
+        <h2>register</h2>
+  
+  
+        <form (ngSubmit)="Addstudents(StudentsInfo)" #StudentsInfo="ngForm">
+          <H1>STUDENTS REGISTRATION</H1>
+          <input name="name" ngModel #name="ngModel" placeholder="Name:">
+          <input name="surname" ngModel #surname="ngModel" placeholder="Surname:">
+          <input name="residential" ngModel #residential="ngModel" placeholder="Residential">
+          <input name="contacts" ngModel #contacts="ngModel" placeholder="Contacts">
+          <input name="course" ngModel #course="ngModel" placeholder="Course">
+          <button type="submit"> Add Students</button>
+          <button type="reset">clear</button>
+  
+  
+        </form>
+  
+  
+      </div>
+      <div class="column" style="background-color:#bbb;">
+        <h2>registered</h2>
+        <h2>REGISTERED STUDENTS</h2>
+        <ul>
+          <li *ngFor="let list of student">
+          
+            Name and Surname: {{list.payload.doc.data().name}} {{list.payload.doc.data().surname}}
+         
+          
+          
+            <a  [routerLink]="['/','student-details',list.payload.doc.id] " routerLinkActive="routerLinkActive"> expand </a>
+           </li>
+           
+       
+        </ul>
+  
+      </div>
+    
+    </div>
+  </div>
